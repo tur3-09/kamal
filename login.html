@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            background-color: white;
+            width: 300px;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #visitorName { background-color: #e6e6fa; } /* لون بنفسجي */
+        #username, #password { background-color: white; }
+        button {
+            background-color: #6a0dad;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4b0082;
+        }
+        .message {
+            margin-top: 15px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="visitorName" placeholder="أدخل اسم الزائر">
+        <input type="text" id="username" placeholder="اسم المستخدم">
+        <input type="password" id="password" placeholder="رمز الدخول">
+        <button onclick="login()">تسجيل الدخول</button>
+        <p id="message" class="message"></p>
+    </div>
+
+    <script>
+        function login() {
+            var visitor = document.getElementById("visitorName").value.trim();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (visitor === "منتظر حسين 1") {
+                // الانتقال إلى صفحة الترحيب الخاصة بمنتظر حسين 1
+                window.location.href = "welcome_special.html";
+            } else if (username === "tot" && password === "3.7") {
+                // الانتقال إلى صفحة الترحيب العامة
+                window.location.href = "welcome.html?name=" + encodeURIComponent(visitor);
+            } else {
+                document.getElementById("message").innerHTML = "خطأ في اسم المستخدم أو الرمز!";
+            }
+        }
+    </script>
+
+</body>
+</html>
